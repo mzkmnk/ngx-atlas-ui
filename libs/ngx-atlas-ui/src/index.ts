@@ -1,1 +1,1 @@
-export * from './lib/ngx-atlas-ui/ngx-atlas-ui.component';
+export { NgxAtlasUiButtonComponent } from './lib/ngx-atlas-ui/components/button/button.component';
