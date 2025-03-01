@@ -26,7 +26,7 @@ export default [
         'error',
         {
           type: 'attribute',
-          prefix: 'ngx-atlas',
+          prefix: 'ngxAtlas',
           style: 'camelCase',
         },
       ],
