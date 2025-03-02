@@ -19,6 +19,7 @@
     "@tailwindcss/postcss": "^4.0.9",
     "angular-tabler-icons": "^3.26.0",
     "clsx": "^2.1.1",
+    "ngx-highlightjs": "^14.0.0",
     "rxjs": "~7.8.0",
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.0.9",
