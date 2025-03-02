@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@mzkmnk-lab/ngx-atlas-ui": ["libs/ngx-atlas-ui/src/index.ts"],
-      "@ngx-atlas-ui/button": ["apps/demo/src/app/button/src/index.ts"]
+      "@ngx-atlas-ui/components": ["apps/demo/src/app/components/src/index.ts"],
+      "@ngx-atlas-ui/components/demo-button": ["apps/demo/src/app/components/src/lib/demo-button/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
