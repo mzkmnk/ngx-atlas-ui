@@ -17,7 +17,7 @@ import { NgxAtlasUiLoadingDirective } from '../../directives/loading.directive';
     <button [class]="buttonClass()" (click)="buttonClick.emit()">
       <div class="flex items-center gap-1">
         @if(loading()){
-        <i-tabler name="loader-2" [loadingSize]="size()" ngxAtlasUiLoading />
+        <i-tabler name="loader-2" ngxAtlasUiLoading [loadingSize]="size()" />
         }
         <ng-content></ng-content>
       </div>
@@ -36,25 +36,32 @@ export class NgxAtlasUiButtonComponent {
 
   textOnly = input<boolean>(false);
 
+  link = input<boolean>(false);
+
   buttonClick = output<void>();
 
   loading = input<boolean>(false);
 
+  rounded = input<boolean>(false);
+
   buttonClass = computed(() => {
     const style = BUTTON_STYLE[this.type()];
 
-    return cx('rounded-md cursor-pointer', BUTTON_SIZE[this.size()], {
+    return cx('cursor-pointer', this.rounded() ? 'rounded-full' : 'rounded-md', BUTTON_SIZE[this.size()], {
       // base
-      [style.base]: !this.outline() && !this.textOnly(),
-      [style.baseHover]: !this.outline() && !this.disabled() && !this.textOnly(),
+      [style.base]: !this.outline() && !this.textOnly() && !this.link(),
+      [style.baseHover]: !this.outline() && !this.disabled() && !this.textOnly() && !this.link(),
 
       // outline
-      [style.outline]: this.outline() && !this.textOnly(),
+      [style.outline]: this.outline() && !this.textOnly() && !this.link(),
 
       // text only
-      [style.textOnly]: this.textOnly() && !this.outline(),
+      [style.textOnly]: this.textOnly() && !this.outline() && !this.link(),
 
-      [style.outlineHover]: (this.outline() || this.textOnly()) && !this.disabled(),
+      [style.outlineHover]: (this.outline() || this.textOnly()) && !this.disabled() && !this.link(),
+
+      // link
+      [style.link]: this.link() && !this.outline() && !this.textOnly(),
 
       // disabled
       [style.disabled]: this.disabled(),

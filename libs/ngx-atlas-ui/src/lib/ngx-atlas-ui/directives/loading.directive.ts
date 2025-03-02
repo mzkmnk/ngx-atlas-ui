@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import { Directive, effect, ElementRef, inject, input, Renderer2 } from '@angular/core';
 
 type LoadingSize = 'sm' | 'md' | 'lg';
@@ -16,14 +17,41 @@ export class NgxAtlasUiLoadingDirective {
 
   private readonly renderer = inject(Renderer2);
 
+  private readonly document = inject(DOCUMENT);
+
   loadingSize = input<LoadingSize>('md');
 
   constructor() {
-    this.renderer.setStyle(this.elementRef.nativeElement, 'animation', 'spin 1s linear infinite');
+    this.setKeyframes();
+
+    this.renderer.addClass(this.elementRef.nativeElement, 'ngx-atlas-loading');
 
     effect(() => {
       this.renderer.setStyle(this.elementRef.nativeElement, 'width', LOADING_SIZE[this.loadingSize()].width);
       this.renderer.setStyle(this.elementRef.nativeElement, 'height', LOADING_SIZE[this.loadingSize()].height);
     });
+  }
+
+  private setKeyframes(): void {
+    const style = this.renderer.createElement('style');
+
+    style.textContent = `
+    .ngx-atlas-loading {
+            animation-name: ngx-atlas-ui-loading-animation;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+          }
+
+          @keyframes ngx-atlas-ui-loading-animation {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }`;
+
+    this.renderer.appendChild(this.document.head, style);
   }
 }

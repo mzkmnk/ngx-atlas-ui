@@ -16,6 +16,7 @@ export const BUTTON_STYLE: Record<
     outline: string;
     outlineHover: string;
     textOnly: string;
+    link: string;
     disabled: string;
   }
 > = {
@@ -26,6 +27,7 @@ export const BUTTON_STYLE: Record<
     outlineHover: 'hover:bg-neutral-100 active:bg-neutral-200',
     textOnly: 'text-neutral-900',
     disabled: 'opacity-60 cursor-not-allowed',
+    link: 'text-neutral-900 p-0 hover:underline',
   },
   secondary: {
     base: 'bg-gray-200 text-white text-gray-700',
@@ -34,6 +36,7 @@ export const BUTTON_STYLE: Record<
     outlineHover: 'hover:bg-gray-100 active:bg-gray-200',
     textOnly: 'text-gray-500',
     disabled: 'opacity-60 cursor-not-allowed',
+    link: 'text-gray-500 hover:underline',
   },
   success: {
     base: 'bg-green-500 text-white',
@@ -42,6 +45,7 @@ export const BUTTON_STYLE: Record<
     outlineHover: 'hover:bg-green-50 active:bg-green-100',
     textOnly: 'text-green-600',
     disabled: 'opacity-60 cursor-not-allowed',
+    link: 'text-green-600 hover:underline',
   },
   info: {
     base: 'bg-sky-500 text-white',
@@ -50,6 +54,7 @@ export const BUTTON_STYLE: Record<
     outlineHover: 'hover:bg-sky-50 active:bg-sky-100',
     textOnly: 'text-sky-600',
     disabled: 'opacity-60 cursor-not-allowed',
+    link: 'text-sky-600 hover:underline',
   },
   warn: {
     base: 'bg-orange-500 text-white',
@@ -58,6 +63,7 @@ export const BUTTON_STYLE: Record<
     outlineHover: 'hover:bg-orange-50 active:bg-orange-100',
     textOnly: 'text-orange-600',
     disabled: 'opacity-60 cursor-not-allowed',
+    link: 'text-orange-600 hover:underline',
   },
   help: {
     base: 'bg-purple-500 text-white',
@@ -66,6 +72,7 @@ export const BUTTON_STYLE: Record<
     outlineHover: 'hover:bg-purple-50 active:bg-purple-100',
     textOnly: 'text-purple-600',
     disabled: 'opacity-60 cursor-not-allowed',
+    link: 'text-purple-600 hover:underline',
   },
   danger: {
     base: 'bg-red-500 text-white',
@@ -74,5 +81,6 @@ export const BUTTON_STYLE: Record<
     outlineHover: 'hover:bg-red-50 active:bg-red-100',
     textOnly: 'text-red-600',
     disabled: 'opacity-60 cursor-not-allowed',
+    link: 'text-red-600 hover:underline',
   },
 };
