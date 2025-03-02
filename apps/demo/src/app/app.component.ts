@@ -1,113 +1,45 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { NgxAtlasUiButtonComponent } from '@mzkmnk-lab/ngx-atlas-ui';
 
 @Component({
   imports: [RouterModule, NgxAtlasUiButtonComponent],
   selector: 'app-root',
   template: `
-    <div class="flex flex-col gap-4 m-3">
-      <h2 class="text-2xl font-bold">Button</h2>
-      <div class="flex gap-2">
-        <ngx-atlas-ui-button type="primary"> Primary </ngx-atlas-ui-button>
+    <div class="h-screen w-screen flex flex-col">
+      <!-- header -->
+      <header class="min-h-[4rem] w-full flex items-center justify-between px-2 sticky top-0 left-0 z-50">
+        <h2 class="text-2xl font-bold">Ngx Atlas UI</h2>
+      </header>
+      <div class="h-full w-full flex px-2">
+        <!-- sidebar -->
+        <div class="h-full w-64 overflow-y-auto sticky top-0 left-0 z-40 flex flex-col gap-6">
+          <div class="flex flex-col gap-1">
+            <p class="font-bold">Getting This Library</p>
+            <ngx-atlas-ui-button [link]="true" [type]="'primary'">
+              <p>Installation</p>
+            </ngx-atlas-ui-button>
+          </div>
 
-        <ngx-atlas-ui-button type="secondary"> Secondary </ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="success"> Success </ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="info"> Info </ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="warn"> Warn </ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="help"> Help </ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="danger"> Danger </ngx-atlas-ui-button>
-      </div>
-
-      <h2 class="text-2xl font-bold">Disabled Button</h2>
-      <div class="flex gap-2">
-        <ngx-atlas-ui-button type="primary" [disabled]="true">Primary</ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="secondary" [disabled]="true">Secondary</ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="success" [disabled]="true">Success</ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="info" [disabled]="true">Info</ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="warn" [disabled]="true">Warn</ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="help" [disabled]="true">Help</ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="danger" [disabled]="true">Danger</ngx-atlas-ui-button>
-      </div>
-
-      <h2 class="text-2xl font-bold">Outline Button</h2>
-      <div class="flex gap-2">
-        <ngx-atlas-ui-button type="primary" [outline]="true"> Primary </ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="secondary" [outline]="true"> Secondary </ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="success" [outline]="true"> Success </ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="info" [outline]="true"> Info </ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="warn" [outline]="true"> Warn </ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="help" [outline]="true"> Help </ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="danger" [outline]="true"> Danger </ngx-atlas-ui-button>
-      </div>
-
-      <h2 class="text-2xl font-bold">Disabled Outline Button</h2>
-      <div class="flex gap-2">
-        <ngx-atlas-ui-button type="primary" [outline]="true" [disabled]="true">Primary</ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="secondary" [outline]="true" [disabled]="true">Secondary</ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="success" [outline]="true" [disabled]="true">Success</ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="info" [outline]="true" [disabled]="true">Info</ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="warn" [outline]="true" [disabled]="true">Warn</ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="help" [outline]="true" [disabled]="true">Help</ngx-atlas-ui-button>
-
-        <ngx-atlas-ui-button type="danger" [outline]="true" [disabled]="true">Danger</ngx-atlas-ui-button>
-      </div>
-
-      <h2 class="text-2xl font-bold">Size Button</h2>
-      <div class="flex gap-2">
-        <ngx-atlas-ui-button type="primary" size="sm"> Small </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="primary" size="md"> Medium </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="primary" size="lg" (buttonClick)="onCLick()"> Large </ngx-atlas-ui-button>
-      </div>
-
-      <h2 class="text-2xl font-bold">Text Only Button</h2>
-      <div class="flex gap-2">
-        <ngx-atlas-ui-button type="primary" [textOnly]="true"> Primary </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="secondary" [textOnly]="true"> Secondary </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="success" [textOnly]="true"> Success </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="info" [textOnly]="true"> Info </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="warn" [textOnly]="true"> Warn </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="help" [textOnly]="true"> Help </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="danger" [textOnly]="true"> Danger </ngx-atlas-ui-button>
-      </div>
-
-      <h2 class="text-2xl font-bold">Loading Button</h2>
-      <div class="flex gap-2">
-        <ngx-atlas-ui-button type="primary" [loading]="true"> Primary </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="secondary" [loading]="true"> Secondary </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="success" [loading]="true"> Success </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="info" [loading]="true"> Info </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="warn" [loading]="true"> Warn </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="help" [loading]="true"> Help </ngx-atlas-ui-button>
-        <ngx-atlas-ui-button type="danger" [loading]="true"> Danger </ngx-atlas-ui-button>
+          <div class="flex flex-col gap-1">
+            <p class="font-bold">Components</p>
+            <ngx-atlas-ui-button [link]="true" [type]="'primary'" (buttonClick)="onClickNavigation('button')">
+              <p>Button</p>
+            </ngx-atlas-ui-button>
+          </div>
+        </div>
+        <!-- content -->
+        <div class="h-full flex-1 overflow-y-auto sticky top-0 left-0">
+          <router-outlet />
+        </div>
       </div>
     </div>
   `,
 })
 export class AppComponent {
-  onCLick = () => {
-    console.log('clicked');
-  };
+  private readonly router = inject(Router);
+
+  onClickNavigation(path: string) {
+    this.router.navigate([`components/${path}`]);
+  }
 }

@@ -1,1 +1,1 @@
-export * from './lib/components/components.component';
+export { COMPONENT_ROUTES } from './lib/components.routes';
