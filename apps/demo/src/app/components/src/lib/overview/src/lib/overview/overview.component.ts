@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgxAtlasUiButtonComponent } from '@mzkmnk-lab/ngx-atlas-ui';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'lib-overview',
+  selector: 'app-overview',
   imports: [CommonModule, NgxAtlasUiButtonComponent],
   template: `
     <div class="flex flex-col gap-4 w-full h-full">

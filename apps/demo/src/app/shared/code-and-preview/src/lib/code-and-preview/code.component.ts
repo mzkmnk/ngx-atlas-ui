@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector:'ngx-atlas-code',
+  selector:'app-code',
   template:`
     <div class="flex gap-2 items-center">
     <ng-content />
