@@ -2,7 +2,11 @@
   "name": "@mzkmnk-lab/ngx-atlas-ui",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/core": "^19.1.0"
+    "@angular/core": "^19.1.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^3.0.2",
+    "angular-tabler-icons": "^3.26.0",
+    "@angular/common": "~19.1.0"
   },
   "sideEffects": false
 }

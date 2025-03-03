@@ -1,0 +1,1 @@
+export { COMPONENT_ROUTES } from './lib/components.routes';
