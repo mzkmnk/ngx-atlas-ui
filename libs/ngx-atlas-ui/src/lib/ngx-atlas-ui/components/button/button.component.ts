@@ -3,11 +3,11 @@ import { cx } from '../../utils/cx';
 import { ButtonType, ButtonSize, BUTTON_STYLE, BUTTON_SIZE } from './button';
 import { provideTablerIcons, TablerIconComponent } from 'angular-tabler-icons';
 import { IconLoader2 } from 'angular-tabler-icons/icons';
-import { NgxAtlasUiLoadingDirective } from '../../directives/loading.directive';
+import { NgxAtlasIconSizeDirective } from '../../directives/icon-size.directive';
 
 @Component({
   selector: 'ngx-atlas-ui-button',
-  imports: [TablerIconComponent, NgxAtlasUiLoadingDirective],
+  imports: [TablerIconComponent, NgxAtlasIconSizeDirective],
   providers: [
     provideTablerIcons({
       IconLoader2,
@@ -17,7 +17,7 @@ import { NgxAtlasUiLoadingDirective } from '../../directives/loading.directive';
     <button [class]="buttonClass()" (click)="buttonClick.emit()">
       <div class="flex items-center gap-1">
         @if(loading()){
-        <i-tabler name="loader-2" ngxAtlasUiLoading [loadingSize]="size()" />
+        <i-tabler name="loader-2" class="animate-spin" ngxAtlasIconSize [loadingSize]="size()" />
         }
         <ng-content></ng-content>
       </div>

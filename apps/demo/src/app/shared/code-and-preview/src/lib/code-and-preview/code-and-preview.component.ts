@@ -7,13 +7,13 @@ import { Highlight } from 'ngx-highlightjs';
   selector: 'app-code-and-preview',
   imports: [CommonModule, NgxAtlasUiButtonComponent, Highlight],
   template: `
-    <div class="flex flex-col gap-2 w-full">
+    <div class="flex flex-col gap-3 w-full">
       <ng-content select="app-code-and-preview-title"></ng-content>
 
       <!-- toggle -->
       <div class="flex gap-4 items-center">
-        <ngx-atlas-ui-button [link]="true" (buttonClick)="onClickToggle('preview')"> Preview</ngx-atlas-ui-button>
-        <ngx-atlas-ui-button [link]="true" (buttonClick)="onClickToggle('code')"> Code</ngx-atlas-ui-button>
+        <ngx-atlas-ui-button (buttonClick)="onClickToggle('preview')" [outline]="isPreview()" [textOnly]="!isPreview()">Preview</ngx-atlas-ui-button>
+        <ngx-atlas-ui-button (buttonClick)="onClickToggle('code')" [outline]="!isPreview()" [textOnly]="isPreview()">Code</ngx-atlas-ui-button>
       </div>
 
       <!-- separator -->

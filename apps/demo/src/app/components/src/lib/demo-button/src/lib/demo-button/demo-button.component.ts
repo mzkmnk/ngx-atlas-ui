@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { NgxAtlasUiButtonComponent } from '@mzkmnk-lab/ngx-atlas-ui';
@@ -102,6 +102,7 @@ import { CodeAndPreviewComponent, CodeAndPreviewTitleComponent, CodeComponent } 
       </app-code-and-preview>
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DemoButtonComponent implements OnInit {
   urls: string[] = [];
